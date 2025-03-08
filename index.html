@@ -15,39 +15,81 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            padding: 20px;
         }
         .container {
             max-width: 600px;
             padding: 20px;
             border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
         .wish-text {
             font-size: 2.5rem;
             font-weight: bold;
-            animation: fadeIn 2s ease-in-out;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 10px 0;
         }
         .heart {
             font-size: 3rem;
             color: #ff4d6d;
             animation: bounce 1.5s infinite;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .footer {
+            font-size: 1rem;
+            margin-top: 20px;
+            font-weight: bold;
         }
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+        .reveal-btn {
+            background: white;
+            color: #ff4d6d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+        }
+        .reveal-btn:hover {
+            background: #ff4d6d;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container shadow-lg bg-dark p-4">
+    <button class="reveal-btn" onclick="showMessage()">💖 Tap to Reveal Women's Day Message 💖</button>
+
+    <div class="container" id="messageBox">
         <h1 class="wish-text">✨ Happy Women's Day! ✨</h1>
-        <p class="lead">Celebrating the strength, love, and power of women everywhere. <br> You are amazing, inspiring, and unstoppable! 💖</p>
+        <p class="lead">To all the wonderful women, your strength, kindness, and passion make the world a better place. <br> 
+        Keep shining, keep inspiring, and keep making a difference! 💖</p>
+        <p class="quote">"She is clothed in strength and dignity, and she laughs without fear of the future." – Proverbs 31:25</p>
         <div class="heart">❤️</div>
+        <p class="footer">Wished by: <strong>Nagul K S</strong></p>
     </div>
+
+    <script>
+        function showMessage() {
+            const messageBox = document.getElementById("messageBox");
+            messageBox.style.display = "block";
+            setTimeout(() => {
+                messageBox.style.opacity = "1";
+            }, 100);
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
